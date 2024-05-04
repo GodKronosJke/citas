@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <title>agenda_de_citas</title>
+  <link rel="stylesheet" href="./cita copy.css">
+  <script src="./cita copy.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@6.9.96/css/materialdesignicons.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+</head>
+
+
+
+
+<body data-bs-spy="scroll" data-bs-target="#menu">
+
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+    </symbol>
+    <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+      <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+    </symbol>
+    <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+      <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+    </symbol>
+  </svg>
+
+  <div class="container">
+    <header class="sticky-top bg-light d-flex flex-wrap justify-content-center py-3 border-bottom">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+
+        <div class="veti">
+          <span class="text-primary fs-4 fw-bold">Veterinaria Sangil</span>
+          <div style="width:100%"><div style="height:0;padding-bottom:56.25%;position:relative;width:100%">
+            <iframe allowfullscreen="" frameBorder="0" height="100%"
+             src="https://giphy.com/embed/raDSkdZvaqOZgY5BoV/video" style="left:0;position:absolute;top:0" 
+             width="100%"></iframe></div></div>
+        </div>
+
+      </a>
+
+
+      <ul id="menu" class="nav nav-pills justify-content-center">
+        <li class="nav-item">
+          <a href="#inicio" class="nav-link active" aria-current="page">Home</a>
+
+        </li>
+        <!-- <li class="nav-item"><a href="#inicio" class="nav-link">Home</a></li> -->
+       
+        <div class="form-check form-switch ms-5 mt-2 me-5">
+          
+          
+        </div>
+      </ul>
+    </header>
+    <br>
+
+    <div class="alerta_mensaje">
+      <p class="alerta_texto"></p>
+    </div> 
+
+    <section id="citas" class="formulario">
+      <div class="row text-center text-md-start">
+        <div class="col-md-6 mt-3">
+          <h2 class="mt-5 fs-5">En el mejor lugar para tratar su amigo con cariño</h2>
+          <h1 class="display-2 fw-bold">Clínica Veterinária</h1>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+        
+
+          <div class="registro">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              Agendar citas
+            </button>
+            
+            <div class="mt-3" id="tarjetas" style="display: grid; grid-template-columns: repeat(4, 1fr);">
+
+            </div>
+    
+    
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="alert alert-success d-flex align-items-center mx-2 mt-3" role="alert" id="exitoso" style="display: none !important; ">
+                    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+                    <div id="msg_exitoso">
+                    </div>
+                  </div>
+                  <div class="alert alert-danger d-flex align-items-center mx-2" role="alert" id="alerta" style="display: none !important;">
+                    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/>
+                      <div id="msg_alert">
+                      
+                      </div>
+                    </svg>
+                   
+                  </div>
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Ingrese informacion</h1>
+                    
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+    
+                  <div class="modal-body">
+                     <div class="modal1">
+                       <p> Nombre de la mascota</p>
+                       <input type="text" id="namepets" placeholder="Digite el nombre de la mascota">
+                     </div>
+                  </div>
+    
+                <div class="modal-body">
+                   <div class="modal2">
+                    <p> Nombre del propietario</p>
+                    <input type="text" id="prope" placeholder="Digite el nombre del propietario">
+                  </div>
+                </div>
+    
+                <div class="modal-body">    
+                   <div class="modal3">
+                    <p> Numero de telefono</p>
+                    <input type="text" id="telf" placeholder="Digite el telefono">
+                   </div>
+                </div>
+    
+                  <div class="modal-body">
+                    <div class="modal4">
+                      <p> Tipo de mascota</p>
+                      <select name="mascota" id="mascota">
+                        <option value="Gato domestico">Gato domestico </option>
+                        <option value="perro domestico">perro domestico</option>
+                        <option value="pajaro domestico">pajaro domestico</option>
+                        <option value="pez domestico">pez domestico</option>
+                      </select>
+                    </div>
+                  </div>
+    
+                  <div class="modal-body">
+                    <div class="modal5">
+                      <p>Fecha </p>
+                      <input type="date" name="" id="fecha"> 
+                    </div>
+                  </div>
+    
+                  <div class="modal-body">
+                    <div class="modal6">
+                      <p>Hora </p>
+                      <input type="time" name="time" id="time">
+                    </div>
+                  </div>
+    
+                  <div class="modal-body">
+                    <div class="modal7">
+                      <p>Sintomas </p>
+                    <textarea name="sintomas" id="sintos" cols="30" rows="10"></textarea>
+                    <br>
+                    <br>
+                    <img src="./img/catsdogs.gif" alt="gif">
+                    </div>
+                  </div>
+    
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" onclick="validaciones()">Enviar</button>
+
+                    
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+         
+
+        </div>
+
+
+        <div class="col-md-6">
+          <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+          <lottie-player src="https://assets7.lottiefiles.com/packages/lf20_erya171l.json" background="transparent"
+          speed="1" style="max-width: 70%;" class="m-0 m-auto float-none float-md-end" loop autoplay></lottie-player>
+        </div>
+      </div>
+    </section>
+
+    
+
+    <script>
+
+      let citas = []
+      let tipo =""
+
+      function agregar(){
+        if (document.getElementById("mascota").value==="Gato domestico"){
+          tipo="https://static.nationalgeographicla.com/files/styles/image_3200/public/nationalgeographic_1468962.jpg?w=1600&h=900"
+        }else if(document.getElementById("mascota").value==="perro domestico"){
+          tipo="https://img.freepik.com/vector-gratis/perro-lindo-alegre-sobre-fondo-blanco_1308-132745.jpg"
+        }else if(document.getElementById("mascota").value==="pajaro domestico"){
+          tipo= "https://img.freepik.com/vector-premium/pajaro-azul-dibujos-animados-ondeando-rama-arbol_29190-5977.jpg"
+        }else{
+          tipo="https://img.freepik.com/vector-gratis/dibujado-mano-ilustracion-dibujos-animados-pez-payaso_23-2150683251.jpg?size=338&ext=jpg&ga=GA1.1.1319243779.1710979200&semt=ais"
+        }
+        let registro = {
+          mascota:document.getElementById("namepets").value,
+          propietario: document.getElementById("prope").value,
+          telefono:document.getElementById("telf").value,
+          tipo:tipo,
+          fecha:document.getElementById("fecha").value,
+          hora:document.getElementById("time").value,
+          sintomas:document.getElementById("sintos").value,
+        }
+
+        citas.push(registro)
+        console.log(registro);
+      }
+
+      function validaciones(){
+        console.log();
+        if (document.getElementById("namepets").value===""){
+          document.getElementById("alerta").setAttribute("style", "display:flex !important")
+          document.getElementById("msg_alert").textContent="Por favor digite el nombre"
+          setTimeout(() => {
+            document.getElementById("alerta").setAttribute("style", "display:none !important")
+            document.getElementById("msg_alert").textContent=""
+          }, 3000);
+        }else if (document.getElementById("prope").value===""){
+          document.getElementById("alerta").setAttribute("style", "display:flex !important")
+          document.getElementById("msg_alert").textContent="Por favor digite el propietario"
+          setTimeout(() => {
+            document.getElementById("alerta").setAttribute("style", "display:none !important")
+            document.getElementById("msg_alert").textContent=""
+          }, 3000);
+        }else if(document.getElementById("telf").value===""){
+          document.getElementById("alerta").setAttribute("style", "display:flex !important")
+          document.getElementById("msg_alert").textContent="Por favor digite el telefono"
+          setTimeout(() => {
+            document.getElementById("alerta").setAttribute("style", "display:none !important")
+            document.getElementById("msg_alert").textContent=""
+          }, 3000);
+        }else if(document.getElementById("mascota").value===""){
+          document.getElementById("alerta").setAttribute("style", "display:flex !important")
+          document.getElementById("msg_alert").textContent="Por favor digite el tipo de la mascota"
+          setTimeout(() => {
+            document.getElementById("alerta").setAttribute("style", "display:none !important")
+            document.getElementById("msg_alert").textContent=""
+          }, 3000);
+        }else if(document.getElementById("mascota").value===""){
+          document.getElementById("alerta").setAttribute("style", "display:flex !important")
+          document.getElementById("msg_alert").textContent="Por favor digite el mascota"
+          setTimeout(() => {
+            document.getElementById("alerta").setAttribute("style", "display:none !important")
+            document.getElementById("msg_alert").textContent=""
+          }, 3000);
+      }else if(document.getElementById("fecha").value===""){
+          document.getElementById("alerta").setAttribute("style", "display:flex !important")
+          document.getElementById("msg_alert").textContent="Por favor digite la fecha"
+          setTimeout(() => {
+            document.getElementById("alerta").setAttribute("style", "display:none !important")
+            document.getElementById("msg_alert").textContent=""
+          }, 3000);
+        }else if(document.getElementById("time").value===""){
+          document.getElementById("alerta").setAttribute("style", "display:flex !important")
+          document.getElementById("msg_alert").textContent="Por favor digite la hora de la cita agendada"
+          setTimeout(() => {
+            document.getElementById("alerta").setAttribute("style", "display:none !important")
+            document.getElementById("msg_alert").textContent=""
+          }, 3000);
+        }else if(document.getElementById("sintos").value===""){
+          document.getElementById("alerta").setAttribute("style", "display:flex !important")
+          document.getElementById("msg_alert").textContent="Por favor digite los sintomas de la mascota"
+          setTimeout(() => {
+            document.getElementById("alerta").setAttribute("style", "display:none !important")
+            document.getElementById("msg_alert").textContent=""
+          }, 3000);
+        }else{
+          agregar()
+          document.getElementById("tarjetas").textContent=""
+          pintar()
+          document.getElementById("exitoso").setAttribute("style", "display:flex !important")
+          document.getElementById("msg_exitoso").textContent="Registro exitoso"
+          setTimeout(() => {
+            document.getElementById("exitoso").setAttribute("style", "display:none !important")
+            document.getElementById("msg_exitoso").textContent=""
+        }, 3000)
+        limpiar()
+
+      }
+
+
+      function pintar(){
+        citas.forEach((item, index)=>{
+          let div = document.createElement("div")
+          div.setAttribute("class","mx-3")
+          div.classList="contenedor"
+          let h1 = document.createElement("h1")
+          h1.textContent=item.mascota
+          div.appendChild(h1)
+          let h2 = document.createElement("h2")
+          h2.textContent=item.propietario
+          div.appendChild(h2)
+          let p = document.createElement("p")
+          p.textContent=item.sintomas
+          div.appendChild(p)
+          let img = document.createElement("img")
+          img.src=item.tipo
+          img.classList="imagen"
+          div.appendChild(img)
+          let botonEditar = document.createElement("button")
+          botonEditar.textContent="Editar"
+          botonEditar.classList="boton"
+          botonEditar.addEventListener("click", ()=>{
+
+          })
+          
+          div.appendChild(botonEditar)
+          document.getElementById("tarjetas").appendChild(div)
+        })
+      }
+
+      function cancelar(){
+        citas.forEach((item, index)=>{
+          let div = document.createElement("div")
+          div.setAttribute("class","mx-3")
+          div.classList="contenedor"
+          let h1 = document.createElement("h1")
+          h1.textContent=item.mascota
+          div.appendChild(h1)
+          let h2 = document.createElement("h2")
+          h2.textContent=item.propietario
+          div.appendChild(h2)
+          let p = document.createElement("p")
+          p.textContent=item.sintomas
+          div.appendChild(p)
+          let img = document.createElement("img")
+          img.src=item.tipo
+          img.classList="imagen"
+          div.appendChild(img)
+          let botoncancelar = document.createElement("button")
+          botoncancelar.textContent="cancelar"
+          botoncancelar.classList="boton"
+          botoncancelar.addEventListener("click", ()=>{
+
+          })
+          
+          div.appendChild(botoncancelar)
+          document.getElementById("tarjetas").appendChild(div)
+        })
+      }
+
+
+      function limpiar(){
+        document.getElementById("namepets").value=""
+        document.getElementById("prope").value=""
+        document.getElementById("telf").value=""
+        document.getElementById("fecha").value=""
+        document.getElementById("time").value=""
+        document.getElementById("sintos").value=""
+
+      }
+
+      function editar(){
+        document.getElementById("namepets").value=""
+        document.getElementById("prope").value=""
+        document.getElementById("telf").value=""
+        document.getElementById("fecha").value=""
+        document.getElementById("time").value=""
+        document.getElementById("sintos").value=""
+
+      }
+
+
+
+
+    }
+    </script>
+    <style>
+      .contenedor{
+        display: flex;
+        flex-direction: column;
+      
+      }
+      .imagen{
+        height: 50px;
+        width: 50px;
+        object-fit: cover;
+        aspect-ratio: 1/1;
+        border-radius: 10px;
+        
+      }
+
+      .boton{
+        background-color: rgb(161, 196, 236);
+        border: solid 1px black;
+        padding: 10px;
+        border-radius: 4px;
+        top: auto;
+      }
+
+
+      .registro{
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #ffffff;
+      
+      }
+
+     .modal-body{
+      background-color: rgb(114, 157, 250);
+     }
+
+
+    </style>
+
+  
+</body>
+</html>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
